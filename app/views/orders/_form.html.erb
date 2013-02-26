@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <p>Order for: <%= Customer.find(params[:customer_id]).name %></p>
   <div class="field">
     <%= f.label :quantity %><br />
     <%= f.text_field :quantity %>
@@ -24,11 +25,8 @@
     <%= f.label :cost %><br />
     <%= f.text_field :cost %>
   </div>
-  <div class="field">
-    <%= f.label :customer_name %><br />
-    <%= f.text_field :customer_name, :value => customer_name(@order) %>
-  </div>
+  <%= f.hidden_field :customer_name, :value => Customer.find(params[:customer_id]).name %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, class: "btn btn-primary" %>
   </div>
 <% end %>

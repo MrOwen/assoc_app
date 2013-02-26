@@ -1,9 +1,11 @@
 AssocApp::Application.routes.draw do
-  resources :orders
+  root :to => 'customers#index'
 
-
-  resources :customers
-
+  resources :customers do
+    resources :orders do
+      resources :items
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

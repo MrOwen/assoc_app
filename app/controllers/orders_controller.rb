@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Customer.find(params[:customer_id]).orders
 
     respond_to do |format|
       format.html # index.html.erb
